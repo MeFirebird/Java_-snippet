@@ -1,2 +1,2 @@
 # Java_snippet
-Useful java snippets  For working，memo，study! 
+Useful java snippets  For working，memo，study
