@@ -1,0 +1,91 @@
+
+public interface Count {
+
+    void queryCount();
+    void updateCount();
+}
+
+
+
+public class CountImpl implements Count {
+
+    @Override
+    public void queryCount() {
+        System.out.println("查看账户方法...");
+
+    }
+
+    @Override
+    public void updateCount() {
+        System.out.println("修改账户方法...");
+
+    }
+
+}
+
+
+
+
+public class CountProxy implements Count {
+
+    private CountImpl countImpl;
+
+    /**
+     * 覆盖默认构造器           这里是关键的地方啊
+     *
+     * @param countImpl
+     */
+    public CountProxy(CountImpl countImpl) {
+        this.countImpl = countImpl;
+    }
+
+    @Override
+    public void queryCount() {
+        System.out.println("事务处理之前");
+        // 调用委托类的方法;
+        countImpl.queryCount();
+        System.out.println("事务处理之后");
+    }
+
+    @Override
+    public void updateCount() {
+        System.out.println("事务处理之前");
+        // 调用委托类的方法;
+        countImpl.updateCount();
+        System.out.println("事务处理之后");
+
+    }
+
+}
+
+
+
+
+public class TestCount {
+
+    /**
+     *  委托执行
+     * @param args
+     */
+    public static void main(String[] args) {
+        CountImpl countImpl = new CountImpl();
+        CountProxy countProxy = new CountProxy(countImpl);  // 委托类   代理类
+        countProxy.updateCount();
+        countProxy.queryCount();
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
