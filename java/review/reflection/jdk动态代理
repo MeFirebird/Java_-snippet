@@ -1,0 +1,71 @@
+/**
+  *   接口
+ */
+public interface BookFacade {
+   void addBook();
+}
+
+
+/**
+  * 接口实现类
+ */
+public class BookFacadeImpl implements BookFacade{
+
+    @Override
+    public void addBook() {
+        System.out.println("增加图书方法。。。");
+    }
+}
+
+
+/**
+ *    工具类： 创建代理类  
+ *            调用Prxoy类的newProxyInstance（）方法
+ *            实现了InvocationHandler接口(重写invoek()方法)
+ *
+ */
+public class BookFacadeProxy implements InvocationHandler {
+
+    private Object target;
+
+    /**
+     * 绑定委托对象并返回一个代理类
+     *
+     * @param target
+     * @return
+     */
+    public Object bind(Object target) {
+        this.target = target;
+        //取得代理对象          这里的this指的是当前类(实现了InvocationHandler接口)
+        ClassLoader loader = target.getClass().getClassLoader();
+        Class<?>[]  intface = target.getClass().getInterfaces();
+        System.out.println("非静态方法里的this指向: " + this);
+        return Proxy.newProxyInstance(loader, intface, this);  
+    }
+
+    @Override
+    /**
+     * 调用方法    此方法是InvocationHandler接口的
+     */
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        Object result = null;
+        System.out.println("事物开始");
+        //执行方法
+        result = method.invoke(target, args);
+        System.out.println("事物结束");
+        return result;
+    }
+
+}
+
+
+
+
+思考：
+1.代理类的创建时根据Proxy来的newProxyInstance()来创建的    
+2.代理类通过实现InvocationHandler接口，让其拥有方法调用功能 ？？
+
+总结：
+1.jdk动态代理只能代理接口
+
+
