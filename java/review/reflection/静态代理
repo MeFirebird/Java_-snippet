@@ -1,4 +1,7 @@
 
+/**
+  *   接口
+ */
 public interface Count {
 
     void queryCount();
@@ -6,7 +9,9 @@ public interface Count {
 }
 
 
-
+/**
+ *    接口实现类
+*/
 public class CountImpl implements Count {
 
     @Override
@@ -25,7 +30,9 @@ public class CountImpl implements Count {
 
 
 
-
+/**
+ *   接口实现类的代理类
+ */
 public class CountProxy implements Count {
 
     private CountImpl countImpl;
@@ -75,6 +82,13 @@ public class TestCount {
 
     }
 }
+
+
+思考：
+1.静态代理在这里感觉没什么用啊，直接在目标类里把方法写好不就可以了 
+
+懂得：
+1.静态代理是编译器织入的，编译的时候就创建好了
 
 
 
