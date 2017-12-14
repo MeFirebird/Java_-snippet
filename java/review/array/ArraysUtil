@@ -1,1 +1,42 @@
 
+总结：
+1.集合相关类都已经重写了toString()方法   所以可以直接打印集合
+2.Arrays.equals(数组1，数组2)  
+3.Arrays.copyOf(数组, 拷贝元素个数)   拷贝个数大于数组就补0，小于就截断.
+4.Arrays.toString(数组)  数组转字符串输出
+5.Arrays.fill()
+6.Arrays.sort()
+
+
+
+public class Test {
+
+    public static void main(String[] args) throws Exception{
+
+        List<String> list = new ArrayList<String>();   // 括号是调用构造器的意思哦
+        list.add("hello");
+        list.add("world");
+        System.out.println(list);   // list默认重写了toString()方法
+
+
+
+        int[] a = new int[]{3,4,5,6};
+        int[] a2 = new int[]{3,4,5,6};
+        System.out.println("a数组和a2数组是否相等 " + Arrays.equals(a,a2));     // a数组和a2数组是否相等 true
+
+        String[] str = new String[]{"hello"};
+        String[] str1 = new String[]{"hello"};
+        System.out.println("str和str1是否相等 " +Arrays.equals(str,str1));
+        
+        int[] b = Arrays.copyOf(a,6);    // 数组拷贝
+        System.out.println("数组b长度为: " + b.length);
+        
+         Arrays.fill(b,2,4,1);    // 数组填充元素左闭右开
+         System.out.println(b);
+         
+         Arrays.sort(b);           // 数组元素排序
+         System.out.println(b);
+        
+        
+  } 
+}
