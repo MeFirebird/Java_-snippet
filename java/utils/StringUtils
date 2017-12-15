@@ -2,8 +2,15 @@
 
 前言：是啊，工具方法搞成静态的就可以了！　　
 
-public class StringUtils {
+public class  final StringUtils {
 
+
+   /**
+     *  空字符串  代码里不要出现硬编码
+     */
+    public static final String EMPTY = "";
+    
+    
    /**
      * 判断字符串是否为空
      * @param str
@@ -30,3 +37,56 @@ public class StringUtils {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
