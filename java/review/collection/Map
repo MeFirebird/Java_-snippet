@@ -1,0 +1,21 @@
+
+/**
+ * Properties是Hashtable类的子类   Map的后代
+ *
+ */
+public class PropertiesTest {
+
+    public static void main(String[] args) throws IOException{
+        Properties prop = new Properties();
+        prop.setProperty("username","zhangdong");
+        prop.setProperty("username","123");    // 因为是Map的后代，所以key不能重复
+        prop.setProperty("password","123");
+        prop.store(new FileOutputStream("a.ini"),"commment");
+
+        Properties prop1 = new Properties();
+        prop1.load(new FileInputStream("a.ini"));
+        System.out.println(prop1);
+
+
+    }
+}
