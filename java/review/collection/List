@@ -1,1 +1,17 @@
 
+
+/**
+ * EnumSet: 为枚举设计的集合        Arrays.asList()不支持扩展  
+ */
+public class EnumSet {
+
+    public static void main(String[] args){
+        // Arrays.asList();   返回的固定长度的List
+        List a = Arrays.asList("hello","world");
+        System.out.println(a.getClass());
+        a.forEach(System.out :: println);        //  lambda表达式实现接口的实例    省略写法      集合类的forEach()方法
+        a.add("can?");        //  报错  这是固定长度的List
+        System.out.println(a);
+    }
+
+}
