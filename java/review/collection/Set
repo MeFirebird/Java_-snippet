@@ -1,0 +1,39 @@
+
+
+/**
+ * Set接口:  实现类->  HashSet(子类：LinkedHashSet)  TreeSet  EnumSet      这几个都是线程不安全的
+ *          无序不重复
+ */
+public class HashSetTest {
+
+    public static void main(String[] args){
+        HashSet books = new HashSet();
+        books.add(new A());
+        books.add(new A());
+        books.add(new B());
+        books.add(new B());
+        books.add(new C());
+        books.add(new C());
+        System.out.println(books);      //  比较equals方法和hashCode方法，所以C实例只有一个添加到集合里
+    }
+}
+
+
+class A {
+    public boolean equals(Object object){
+        return true;
+    }
+}
+class B{
+    public int hashCode(){
+        return 1;
+    }
+}
+class C {
+    public int hashCode(){
+        return 2;
+    }
+    public boolean equals(Object object){
+        return true;
+    }
+}
