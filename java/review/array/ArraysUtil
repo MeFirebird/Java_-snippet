@@ -4,8 +4,8 @@
 2.Arrays.equals(数组1，数组2)  
 3.Arrays.copyOf(数组, 拷贝元素个数)   拷贝个数大于数组就补0，小于就截断.
 4.Arrays.toString(数组)  数组转字符串输出
-5.Arrays.fill()
-6.Arrays.sort()
+5.Arrays.fill(数组，开始位置，结束位置，填充元素)    左闭右开  
+6.Arrays.sort(数组)   数组排序
 
 
 
